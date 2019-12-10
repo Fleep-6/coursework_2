@@ -11,7 +11,6 @@ var handleRequest = function(request, response) {
   response.write(host);
   response.end(" | v=1\n");
   console.log("Running On:" ,host, "| Total Requests:", ++requests,"| App Uptime:", (new Date() - startTime)/1000 , "seconds", "| Log Time:",new Date());
-  process.exit(0);
 }
 
 var www = http.createServer(handleRequest);
@@ -20,4 +19,5 @@ www.listen(8080,function () {
     startTime = new Date();;
     host = process.env.HOSTNAME;
     console.log ("Hello World Started At:",startTime, "| Running On: " ,host, "\n" );
+  process.exit(0);
 });
