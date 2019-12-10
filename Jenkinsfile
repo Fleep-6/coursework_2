@@ -1,14 +1,14 @@
 pipeline 
 {
-    agent { docker { image 'node:6.3' } }
+    agent any{ docker { image 'node:6.3' } }
     stages 
     {
-        stage('build') 
+        stage('Checkout') 
         {
             steps 
             {
-            sh'npm install'
-            sh'node server.js'
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
+       extensions: [], submoduleCfg: [],userRemoteConfigs: [[url: 'https://github.com/Fleep-6/coursework_2.git']]])
             }
         }
         stage('Sonarqube') 
