@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'npm --run server.js'
+            sh'npm install'
+            sh'node server.js'
             }
         }
     }
