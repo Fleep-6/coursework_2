@@ -1,20 +1,10 @@
-pipeline{
-agent any
-stages {
-stage('Clone') 
-        {
-        checkout scm
+pipeline {
+    agent { docker { image 'node:6.3' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'npm --version'
+            }
         }
-
-    stage('Image Build') 
-        {
-        app = docker.build("Fleep-6/coursework2")
-        }
-stage('-----Package----')
-{
-steps {
-        
-      }
-}
-}
+    }
 }
