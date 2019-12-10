@@ -33,5 +33,15 @@ pipeline
         }
           }
 }
+        
+        stage('Docker Build and Push')
+        {
+            dem app
+            docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_credentials') 
+            {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+            }
+        }
     }
 }
