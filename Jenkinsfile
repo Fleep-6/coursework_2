@@ -18,7 +18,7 @@ pipeline
         scannerHome = tool 'SonarQubeScanner'
     }
     steps {
-        withSonarQubeEnv('sonarqube') 
+        withSonarQubeEnv('SonarQube') 
         {
             sh "${scanner}/bin/sonar-scanner -D sonar.login=admin -D sonar.password=admin"
         }
