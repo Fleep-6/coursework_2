@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'npm server.js'
+                sh 'npm --run server.js'
             }
         }
     }
