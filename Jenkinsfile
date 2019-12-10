@@ -8,7 +8,13 @@ pipeline
         {
             steps 
             {
-            scm checkout( 'https://github.com/Fleep-6/coursework_2.git')
+            checkout([
+         $class: 'GitSCM',
+         branches: scm.branches,
+         doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+         extensions: scm.extensions,
+         userRemoteConfigs: [[url: 'https://github.com/Fleep-6/coursework_2.git']]
+    ])
             }
         }
         stage('Sonarqube') 
