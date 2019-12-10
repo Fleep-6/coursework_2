@@ -7,8 +7,7 @@ pipeline
         {
             steps 
             {
-            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false,
-       extensions: [], submoduleCfg: [],userRemoteConfigs: [[url: 'https://github.com/Fleep-6/coursework_2.git']]])
+            scm checkout( 'https://github.com/Fleep-6/coursework_2.git')
             }
         }
         stage('Sonarqube') 
