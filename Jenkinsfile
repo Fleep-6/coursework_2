@@ -40,7 +40,7 @@ pipeline
           {
               script
               {
-            def app = docker.build("fleep6/coursework2
+            def app = docker.build("fleep6/coursework2")
             docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_credentials') 
             {
             app.push("${env.BUILD_NUMBER}")
