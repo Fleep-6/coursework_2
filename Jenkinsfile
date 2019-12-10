@@ -20,7 +20,7 @@ pipeline
     steps {
         withSonarQubeEnv('SonarQube') 
         {
-            sh "${scanner}/bin/sonar-scanner -D sonar.login=admin -D sonar.password=admin"
+            sh "${scannerHome}/bin/sonar-scanner -D sonar.login=admin -D sonar.password=admin"
         }
         timeout(time: 10, unit: 'MINUTES') 
         {
